@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		842A2AF222C257E300A526F1 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842A2AF122C257E300A526F1 /* Alamofire.framework */; };
+		842A2AF422C27B6B00A526F1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A2AF322C27B6B00A526F1 /* MainViewController.swift */; };
+		842A2AF622C27E0F00A526F1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A2AF522C27E0F00A526F1 /* DetailsViewController.swift */; };
+		842A2AF822C2859D00A526F1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A2AF722C2859D00A526F1 /* NetworkManager.swift */; };
+		842A2AFA22C2876300A526F1 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A2AF922C2876300A526F1 /* Details.swift */; };
+		842A2AFC22C2B74D00A526F1 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A2AFB22C2B74D00A526F1 /* DetailTableViewCell.swift */; };
+		842A2AFE22C2B77700A526F1 /* DaylightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842A2AFD22C2B77700A526F1 /* DaylightTableViewCell.swift */; };
 		8467921322C254F000933990 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467921222C254F000933990 /* AppDelegate.swift */; };
-		8467921522C254F000933990 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467921422C254F000933990 /* ViewController.swift */; };
 		8467921822C254F000933990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467921622C254F000933990 /* Main.storyboard */; };
 		8467921A22C254F100933990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8467921922C254F100933990 /* Assets.xcassets */; };
 		8467921D22C254F100933990 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467921B22C254F100933990 /* LaunchScreen.storyboard */; };
@@ -20,9 +25,14 @@
 		56CAEAB5F6BB5315096ECA73 /* Pods-SunsetAndSunrise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunsetAndSunrise.debug.xcconfig"; path = "Target Support Files/Pods-SunsetAndSunrise/Pods-SunsetAndSunrise.debug.xcconfig"; sourceTree = "<group>"; };
 		65BB2740A645E59A53E64288 /* Pods-SunsetAndSunrise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SunsetAndSunrise.release.xcconfig"; path = "Target Support Files/Pods-SunsetAndSunrise/Pods-SunsetAndSunrise.release.xcconfig"; sourceTree = "<group>"; };
 		842A2AF122C257E300A526F1 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		842A2AF322C27B6B00A526F1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		842A2AF522C27E0F00A526F1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		842A2AF722C2859D00A526F1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		842A2AF922C2876300A526F1 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
+		842A2AFB22C2B74D00A526F1 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		842A2AFD22C2B77700A526F1 /* DaylightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaylightTableViewCell.swift; sourceTree = "<group>"; };
 		8467920F22C254F000933990 /* SunsetAndSunrise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunsetAndSunrise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8467921222C254F000933990 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8467921422C254F000933990 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8467921722C254F000933990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8467921922C254F100933990 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8467921C22C254F100933990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +71,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		842A2AFF22C2C76C00A526F1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				842A2AF522C27E0F00A526F1 /* DetailsViewController.swift */,
+				842A2AF322C27B6B00A526F1 /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		842A2B0022C2C78100A526F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				842A2AFB22C2B74D00A526F1 /* DetailTableViewCell.swift */,
+				842A2AFD22C2B77700A526F1 /* DaylightTableViewCell.swift */,
+				8467921622C254F000933990 /* Main.storyboard */,
+				8467921B22C254F100933990 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		842A2B0122C2C79300A526F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				842A2AF922C2876300A526F1 /* Details.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		842A2B0222C2C81100A526F1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				842A2AF722C2859D00A526F1 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8467920622C254F000933990 = {
 			isa = PBXGroup;
 			children = (
@@ -82,11 +128,12 @@
 		8467921122C254F000933990 /* SunsetAndSunrise */ = {
 			isa = PBXGroup;
 			children = (
+				842A2B0122C2C79300A526F1 /* Model */,
+				842A2B0022C2C78100A526F1 /* View */,
+				842A2AFF22C2C76C00A526F1 /* Controller */,
+				842A2B0222C2C81100A526F1 /* Network */,
 				8467921222C254F000933990 /* AppDelegate.swift */,
-				8467921422C254F000933990 /* ViewController.swift */,
-				8467921622C254F000933990 /* Main.storyboard */,
 				8467921922C254F100933990 /* Assets.xcassets */,
-				8467921B22C254F100933990 /* LaunchScreen.storyboard */,
 				8467921E22C254F100933990 /* Info.plist */,
 			);
 			path = SunsetAndSunrise;
@@ -212,8 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8467921522C254F000933990 /* ViewController.swift in Sources */,
+				842A2AFC22C2B74D00A526F1 /* DetailTableViewCell.swift in Sources */,
+				842A2AFA22C2876300A526F1 /* Details.swift in Sources */,
+				842A2AF822C2859D00A526F1 /* NetworkManager.swift in Sources */,
+				842A2AFE22C2B77700A526F1 /* DaylightTableViewCell.swift in Sources */,
+				842A2AF422C27B6B00A526F1 /* MainViewController.swift in Sources */,
 				8467921322C254F000933990 /* AppDelegate.swift in Sources */,
+				842A2AF622C27E0F00A526F1 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
