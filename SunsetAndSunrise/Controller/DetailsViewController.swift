@@ -12,19 +12,44 @@ import Alamofire
 class DetailsViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var datePicker: UIDatePicker!
     private let networkManager = NetworkManager()
     private var details: Details?
     var latitude: Double!
     var longitude: Double!
+    var city: String!
     
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkManager.getDetailsFor(latitude: latitude, longitude: longitude) { [weak self] (details) in
+        
+        self.title = city
+        
+        let dateString = getDateString(from: Date())
+        
+        networkManager.getDetailsFor(latitude: latitude, longitude: longitude, date: dateString) { [weak self] (details) in
             self?.details = details
             self?.tableView.reloadData()
         }
     }
+    
+    // MARK: - Actions
+    @IBAction func okButtonTapped(_ sender: UIBarButtonItem) {        
+        let dateString = getDateString(from: datePicker.date)
+        
+        networkManager.getDetailsFor(latitude: latitude, longitude: longitude, date: dateString) { [weak self] (details) in
+            self?.details = details
+            self?.tableView.reloadData()
+        }
+    }
+    
+    func getDateString(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
+        return dateString
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -42,19 +67,19 @@ extension DetailsViewController: UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 detailCell.leftLabel.text = "First light"
-                detailCell.rightLabel.text = details?.civilTwilightEnd
+                detailCell.rightLabel.text = details?.civilTwilightBegin
             case 1:
                 detailCell.leftLabel.text = "Sunrise"
                 detailCell.rightLabel.text = details?.sunrise
             case 2:
                 detailCell.leftLabel.text = "Sunset"
-                detailCell.rightLabel.text = details?.civilTwilightEnd
+                detailCell.rightLabel.text = details?.sunset
             case 3:
                 detailCell.leftLabel.text = "Last light"
                 detailCell.rightLabel.text = details?.astronomicalTwilightEnd
             case 4:
                 if let daylightCell = tableView.dequeueReusableCell(withIdentifier: "DaylightTableViewCell", for: indexPath) as? DaylightTableViewCell {
-                    daylightCell.daylightLabel.text = details?.dayLength
+                    daylightCell.daylightLabel.text = "Full day length \(details?.dayLength ?? "00:00:00")"
                     return daylightCell
                 }
             default:

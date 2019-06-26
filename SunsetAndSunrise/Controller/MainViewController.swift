@@ -10,12 +10,15 @@ import UIKit
 import CoreLocation
 
 class MainViewController: UIViewController {
+  
     private let locationManager = CLLocationManager()
+    var nameArray: [String]?
     
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         checkPermissionStatus()
+        
     }
     
     // MARK: - Actions
@@ -28,6 +31,10 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func tapOnMapTapped(_ sender: UIButton) {
+    }
+    
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailsSeque" {
@@ -35,6 +42,7 @@ class MainViewController: UIViewController {
                 let coordinate = sender as? CLLocationCoordinate2D {
                 vc.latitude = coordinate.latitude
                 vc.longitude = coordinate.longitude
+                vc.city = "Your city"
             }
         }
     }
@@ -58,3 +66,6 @@ class MainViewController: UIViewController {
         }
     }
 }
+
+
+

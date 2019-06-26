@@ -6,5 +6,7 @@ target 'SunsetAndSunrise' do
   use_frameworks!
 
 pod 'Alamofire', '~> 4.7.2'
+pod 'GooglePlaces'
+
 
 end

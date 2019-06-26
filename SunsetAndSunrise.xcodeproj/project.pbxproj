@@ -18,6 +18,8 @@
 		8467921822C254F000933990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467921622C254F000933990 /* Main.storyboard */; };
 		8467921A22C254F100933990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8467921922C254F100933990 /* Assets.xcassets */; };
 		8467921D22C254F100933990 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467921B22C254F100933990 /* LaunchScreen.storyboard */; };
+		8489430722C38241002339C8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489430622C38241002339C8 /* SearchViewController.swift */; };
+		84ECE3EC22C408BE00D0A55F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ECE3EB22C408BE00D0A55F /* MapViewController.swift */; };
 		A39465A78B008A6C4AC4D906 /* Pods_SunsetAndSunrise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2220EFB4C044025FB8D9BB5 /* Pods_SunsetAndSunrise.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		8467921922C254F100933990 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8467921C22C254F100933990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8467921E22C254F100933990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8489430622C38241002339C8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		84ECE3EB22C408BE00D0A55F /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B2220EFB4C044025FB8D9BB5 /* Pods_SunsetAndSunrise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SunsetAndSunrise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,6 +80,8 @@
 			children = (
 				842A2AF522C27E0F00A526F1 /* DetailsViewController.swift */,
 				842A2AF322C27B6B00A526F1 /* MainViewController.swift */,
+				8489430622C38241002339C8 /* SearchViewController.swift */,
+				84ECE3EB22C408BE00D0A55F /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 				8467920C22C254F000933990 /* Frameworks */,
 				8467920D22C254F000933990 /* Resources */,
 				D7AA9B4398CEE980AEED7CD5 /* [CP] Embed Pods Frameworks */,
+				0F07AD8C00291B606B27C404 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,6 +215,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0F07AD8C00291B606B27C404 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SunsetAndSunrise/Pods-SunsetAndSunrise-resources.sh",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SunsetAndSunrise/Pods-SunsetAndSunrise-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		713EBEF68B45FFEEB8BD0C1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,7 +290,9 @@
 			files = (
 				842A2AFC22C2B74D00A526F1 /* DetailTableViewCell.swift in Sources */,
 				842A2AFA22C2876300A526F1 /* Details.swift in Sources */,
+				8489430722C38241002339C8 /* SearchViewController.swift in Sources */,
 				842A2AF822C2859D00A526F1 /* NetworkManager.swift in Sources */,
+				84ECE3EC22C408BE00D0A55F /* MapViewController.swift in Sources */,
 				842A2AFE22C2B77700A526F1 /* DaylightTableViewCell.swift in Sources */,
 				842A2AF422C27B6B00A526F1 /* MainViewController.swift in Sources */,
 				8467921322C254F000933990 /* AppDelegate.swift in Sources */,
@@ -421,7 +452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SunsetAndSunrise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -439,7 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SunsetAndSunrise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
