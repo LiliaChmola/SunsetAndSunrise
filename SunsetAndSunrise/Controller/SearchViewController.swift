@@ -17,14 +17,21 @@ class SearchViewController: UIViewController {
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
     var city: String?
+    var topCitiesCoordinates = [CLLocationCoordinate2D]()
     
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        topCitiesCoordinates = [CLLocationCoordinate2D.init(latitude: 51.509865, longitude: -0.118092),
+                                CLLocationCoordinate2D.init(latitude: 40.730610, longitude: -73.935242),
+                                CLLocationCoordinate2D.init(latitude: 52.520008, longitude: 13.404954),
+                                CLLocationCoordinate2D.init(latitude: 41.390205, longitude: 2.154007),
+                                CLLocationCoordinate2D.init(latitude: 49.842957, longitude: 24.031111)]
         
     }
     
     // MARK: - Actions
+    
     @IBAction func cityNameTapped(_ sender: UITextField) {
         cityNameField.resignFirstResponder()
         let acController = GMSAutocompleteViewController()
@@ -42,7 +49,13 @@ class SearchViewController: UIViewController {
         }
     }
 
-
+    @IBAction func topCityTapped(_ sender: UIButton) {
+        let coordinate = topCitiesCoordinates[sender.tag]
+        longitude = coordinate.longitude
+        latitude = coordinate.latitude
+        performSegue(withIdentifier: "searchDetailSeque", sender: nil)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "searchDetailSeque" { 
