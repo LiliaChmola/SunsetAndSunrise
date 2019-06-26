@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func tapOnMapTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "mapSeque", sender: nil)
     }
     
     
