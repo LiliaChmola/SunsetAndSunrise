@@ -10,8 +10,8 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var useCordinatesButton: UIButton!
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var useCordinatesButton: UIButton!
 
     var currentAnnotation: MKPointAnnotation?
 
@@ -23,7 +23,7 @@ class MapViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func gestureTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction private func gestureTapped(_ sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             let locationInView = sender.location(in: mapView)
             let tappedCoordinate = mapView.convert(locationInView , toCoordinateFrom: mapView)
@@ -32,14 +32,14 @@ class MapViewController: UIViewController {
         }
     }
     
-    @IBAction func useCoordinatesTapped(_ sender: Any) {
-        performSegue(withIdentifier: "fromMapToDetailSeque", sender: nil)
+    @IBAction private func useCoordinatesTapped(_ sender: Any) {
+        performSegue(withIdentifier: "fromMapToDetailSegue", sender: nil)
         
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "fromMapToDetailSeque" {
+        if segue.identifier == "fromMapToDetailSegue" {
             if let vc = segue.destination as? DetailsViewController {
                 vc.latitude = currentAnnotation?.coordinate.latitude
                 vc.longitude = currentAnnotation?.coordinate.longitude

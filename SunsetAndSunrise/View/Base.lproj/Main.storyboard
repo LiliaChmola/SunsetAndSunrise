@@ -22,21 +22,24 @@
                                 <rect key="frame" x="112.5" y="253.5" width="150" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6u-lA-7GD" userLabel="Current location">
-                                        <rect key="frame" x="19.5" y="0.0" width="111" height="40"/>
+                                        <rect key="frame" x="15.5" y="0.0" width="119" height="40"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Current location"/>
                                         <connections>
                                             <action selector="currentLocationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C00-au-O4C"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj8-Cj-ki4" userLabel="Search sity">
-                                        <rect key="frame" x="36.5" y="40" width="77" height="40"/>
+                                        <rect key="frame" x="33.5" y="40" width="83" height="40"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Search city"/>
                                         <connections>
-                                            <segue destination="ISQ-Rs-OO4" kind="show" identifier="searchVCSegue" id="7DP-Rn-3lw"/>
+                                            <segue destination="ISQ-Rs-OO4" kind="show" identifier="fromMainToSearchSegue" id="7DP-Rn-3lw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfZ-N5-e5o">
-                                        <rect key="frame" x="35" y="80" width="80" height="40"/>
+                                        <rect key="frame" x="33" y="80" width="84" height="40"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Tap on Map"/>
                                         <connections>
                                             <action selector="tapOnMapTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gbe-Yv-z4U"/>
@@ -58,8 +61,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="bYa-Mt-B15"/>
                     <connections>
-                        <segue destination="gin-sl-Yuv" kind="show" identifier="detailsSeque" id="Oh9-GZ-PQ0"/>
-                        <segue destination="h7S-Xu-vib" kind="show" identifier="mapSeque" id="VkK-TK-U7H"/>
+                        <segue destination="gin-sl-Yuv" kind="show" identifier="fromMainToDetailSegue" id="Oh9-GZ-PQ0"/>
+                        <segue destination="h7S-Xu-vib" kind="show" identifier="fromMainToMapSegue" id="VkK-TK-U7H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -110,7 +113,7 @@
                     <connections>
                         <outlet property="mapView" destination="4Of-ao-RTj" id="X1n-lF-eDm"/>
                         <outlet property="useCordinatesButton" destination="vUe-NM-3wG" id="MpJ-wb-WVR"/>
-                        <segue destination="gin-sl-Yuv" kind="show" identifier="fromMapToDetailSeque" id="OP8-P9-PUE"/>
+                        <segue destination="gin-sl-Yuv" kind="show" identifier="fromMapToDetailSegue" id="OP8-P9-PUE"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="OJH-Zo-QQr">
@@ -387,7 +390,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mDK-CY-8dc"/>
+        <segue reference="Oh9-GZ-PQ0"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.57856649160385132" blue="0.00033426805748604238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

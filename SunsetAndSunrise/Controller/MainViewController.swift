@@ -12,7 +12,7 @@ import CoreLocation
 class MainViewController: UIViewController {
   
     private let locationManager = CLLocationManager()
-    var nameArray: [String]?
+    private var nameArray: [String]?
     
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
@@ -22,23 +22,23 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func currentLocationTapped(_ sender: UIButton) {
+    @IBAction private func currentLocationTapped(_ sender: UIButton) {
         locationManager.startUpdatingLocation()
         if let coordinate = locationManager.location?.coordinate {
-            performSegue(withIdentifier: "detailsSeque", sender: coordinate)
+            performSegue(withIdentifier: "fromMainToDetailSegue", sender: coordinate)
         } else {
             checkPermissionStatus()
         }
     }
     
-    @IBAction func tapOnMapTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "mapSeque", sender: nil)
+    @IBAction private func tapOnMapTapped(_ sender: UIButton) {
+         performSegue(withIdentifier: "fromMainToMapSegue", sender: nil)
     }
     
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailsSeque" {
+        if segue.identifier == "fromMainToDetailSegue" {
             if let vc = segue.destination as? DetailsViewController,
                 let coordinate = sender as? CLLocationCoordinate2D {
                 vc.latitude = coordinate.latitude

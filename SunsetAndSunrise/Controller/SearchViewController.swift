@@ -13,11 +13,11 @@ import GooglePlaces
 
 class SearchViewController: UIViewController {
    
-    @IBOutlet weak var cityNameField: UITextField!
+    @IBOutlet private weak var cityNameField: UITextField!
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
     var city: String?
-    var topCitiesCoordinates = [CLLocationCoordinate2D]()
+    private var topCitiesCoordinates = [CLLocationCoordinate2D]()
     
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
@@ -31,15 +31,14 @@ class SearchViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
-    @IBAction func cityNameTapped(_ sender: UITextField) {
+    @IBAction private func cityNameTapped(_ sender: UITextField) {
         cityNameField.resignFirstResponder()
         let acController = GMSAutocompleteViewController()
         acController.delegate = self
         present(acController, animated: true, completion: nil)
     }
     
-    @IBAction func okButtonTapped(_ sender: UIButton) {
+    @IBAction private func okButtonTapped(_ sender: UIButton) {
         if cityNameField.text!.count != 0 {
             performSegue(withIdentifier: "searchDetailSeque", sender: nil)
         } else {
@@ -49,10 +48,11 @@ class SearchViewController: UIViewController {
         }
     }
 
-    @IBAction func topCityTapped(_ sender: UIButton) {
+    @IBAction private func topCityTapped(_ sender: UIButton) {
         let coordinate = topCitiesCoordinates[sender.tag]
         longitude = coordinate.longitude
         latitude = coordinate.latitude
+        city = ""
         performSegue(withIdentifier: "searchDetailSeque", sender: nil)
     }
     

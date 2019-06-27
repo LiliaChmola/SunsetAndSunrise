@@ -12,7 +12,7 @@ import Alamofire
 class DetailsViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var datePicker: UIDatePicker!
     private let networkManager = NetworkManager()
     private var details: Details?
     var latitude: Double!
@@ -34,7 +34,7 @@ class DetailsViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func okButtonTapped(_ sender: UIBarButtonItem) {        
+    @IBAction private func okButtonTapped(_ sender: UIBarButtonItem) {
         let dateString = getDateString(from: datePicker.date)
         
         networkManager.getDetailsFor(latitude: latitude, longitude: longitude, date: dateString) { [weak self] (details) in
@@ -43,13 +43,13 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    func getDateString(from date: Date) -> String {
+    // MARK: - Private methods
+    private func getDateString(from date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
-    
 }
 
 // MARK: - UITableViewDataSource
