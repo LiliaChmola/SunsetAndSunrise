@@ -50,6 +50,23 @@ class DetailsViewController: UIViewController {
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
+    
+    private func UTCToLocal(date:String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        let dt = dateFormatter.date(from: date)
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "h:mm a"
+        
+        return dateFormatter.string(from: dt!)
+    }
+    
+    private func secondsToHoursMinutesSeconds (seconds : Int) -> String {
+        let convertedDayLenght =  (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+        return "\(convertedDayLenght.0):\(convertedDayLenght.1):\(convertedDayLenght.0)"
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -62,24 +79,25 @@ extension DetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let detailCell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as? DetailTableViewCell {
+        if let detailCell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as? DetailTableViewCell,
+            let unwrappedDetails = details {
             
             switch indexPath.row {
             case 0:
                 detailCell.leftLabel.text = "First light"
-                detailCell.rightLabel.text = details?.civilTwilightBegin
+                detailCell.rightLabel.text = UTCToLocal(date:unwrappedDetails.civilTwilightBegin)
             case 1:
                 detailCell.leftLabel.text = "Sunrise"
-                detailCell.rightLabel.text = details?.sunrise
+                detailCell.rightLabel.text = UTCToLocal(date:unwrappedDetails.sunrise)
             case 2:
                 detailCell.leftLabel.text = "Sunset"
-                detailCell.rightLabel.text = details?.sunset
+                detailCell.rightLabel.text = UTCToLocal(date:unwrappedDetails.sunset)
             case 3:
                 detailCell.leftLabel.text = "Last light"
-                detailCell.rightLabel.text = details?.astronomicalTwilightEnd
+                detailCell.rightLabel.text = UTCToLocal(date:unwrappedDetails.nauticalTwilightEnd)
             case 4:
                 if let daylightCell = tableView.dequeueReusableCell(withIdentifier: "DaylightTableViewCell", for: indexPath) as? DaylightTableViewCell {
-                    daylightCell.daylightLabel.text = "Full day length \(details?.dayLength ?? "00:00:00")"
+                    daylightCell.daylightLabel.text = "Full day length \(secondsToHoursMinutesSeconds(seconds: unwrappedDetails.dayLength))"
                     return daylightCell
                 }
             default:

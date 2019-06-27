@@ -13,7 +13,7 @@ struct Details {
 let sunrise: String
 let sunset: String
 let solarNoon: String
-let dayLength: String
+let dayLength: Int
 let civilTwilightBegin: String
 let civilTwilightEnd: String
 let nauticalTwilightBegin: String
@@ -25,7 +25,7 @@ let astronomicalTwilightEnd: String
         guard let sunrise = dict["sunrise"] as? String,
             let sunset = dict["sunset"] as? String,
             let solarNoon = dict["solar_noon"] as? String,
-            let dayLength = dict["day_length"] as? String,
+            let dayLength = dict["day_length"] as? Int,
             let civilTwilightBegin = dict["civil_twilight_begin"] as? String,
             let civilTwilightEnd = dict["civil_twilight_end"] as? String,
             let nauticalTwilightBegin = dict["nautical_twilight_begin"] as? String,
