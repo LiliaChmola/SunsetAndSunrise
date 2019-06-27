@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     
     private let locationManager = CLLocationManager()
     private var nameArray: [String]?
+    private var isAnimationShowed = false
     
     // MARK: - Controller lifecycle
     override func viewDidLoad() {
@@ -26,15 +27,18 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        currentLocationButton.center.x  -= view.bounds.width
-        searchCityButton.center.x += view.bounds.width
-        tapOnMapButton.center.x -= view.bounds.width
-        UIView.animate(withDuration: 0.9, delay: 0.4, options: [],
-                       animations: {
-                        self.currentLocationButton.center.x  += self.view.bounds.width
-                        self.searchCityButton.center.x -= self.view.bounds.width
-                        self.tapOnMapButton.center.x += self.view.bounds.width
-        }, completion: nil)
+        if !isAnimationShowed {
+            isAnimationShowed = true
+            currentLocationButton.center.x  -= view.bounds.width
+            searchCityButton.center.x += view.bounds.width
+            tapOnMapButton.center.x -= view.bounds.width
+            UIView.animate(withDuration: 0.9, delay: 0.4, options: [],
+                           animations: {
+                            self.currentLocationButton.center.x  += self.view.bounds.width
+                            self.searchCityButton.center.x -= self.view.bounds.width
+                            self.tapOnMapButton.center.x += self.view.bounds.width
+            }, completion: nil)
+        }
     }
     
     // MARK: - Actions
