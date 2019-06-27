@@ -10,7 +10,10 @@ import UIKit
 import CoreLocation
 
 class MainViewController: UIViewController {
-  
+    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var searchCityButton: UIButton!
+    @IBOutlet weak var tapOnMapButton: UIButton!
+    
     private let locationManager = CLLocationManager()
     private var nameArray: [String]?
     
@@ -19,6 +22,19 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         checkPermissionStatus()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        currentLocationButton.center.x  -= view.bounds.width
+        searchCityButton.center.x += view.bounds.width
+        tapOnMapButton.center.x -= view.bounds.width
+        UIView.animate(withDuration: 0.9, delay: 0.4, options: [],
+                       animations: {
+                        self.currentLocationButton.center.x  += self.view.bounds.width
+                        self.searchCityButton.center.x -= self.view.bounds.width
+                        self.tapOnMapButton.center.x += self.view.bounds.width
+        }, completion: nil)
     }
     
     // MARK: - Actions

@@ -61,6 +61,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="bYa-Mt-B15"/>
                     <connections>
+                        <outlet property="currentLocationButton" destination="M6u-lA-7GD" id="FqT-ND-EAp"/>
+                        <outlet property="searchCityButton" destination="Fj8-Cj-ki4" id="w6z-Lt-swV"/>
+                        <outlet property="tapOnMapButton" destination="PfZ-N5-e5o" id="ygk-Nw-8ko"/>
                         <segue destination="gin-sl-Yuv" kind="show" identifier="fromMainToDetailSegue" id="Oh9-GZ-PQ0"/>
                         <segue destination="h7S-Xu-vib" kind="show" identifier="fromMainToMapSegue" id="VkK-TK-U7H"/>
                     </connections>
